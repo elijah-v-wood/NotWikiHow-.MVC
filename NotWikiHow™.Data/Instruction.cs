@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace NotWikiHow_.Data
 
     public class Instruction
     {
+        [Key]
         public int InstructId { get; set; }
         public int TutorId { get; set; }
         public int Step { get; set; }

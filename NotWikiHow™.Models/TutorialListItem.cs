@@ -5,18 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NotWikiHow_.Data
+namespace NotWikiHow_.Models
 {
-    public class Tutorial
+    public class TutorialListItem
     {
-        [Key]
         public int TutorId { get; set; }
-        public Guid UserId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public List<Instruction> Instructions { get; set; }
-        public bool Published { get; set; }
+        [Display(Name=("Created"))]
         public DateTimeOffset CreatedUTC { get; set; }
-        public DateTimeOffset ModifiedUTC { get; set; }
+
     }
 }
