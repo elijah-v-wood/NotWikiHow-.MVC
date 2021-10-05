@@ -251,6 +251,20 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NotWikiHow™.Data\NotWikiHow™.Data.csproj">
+      <Project>{68178F28-FB4B-4ECA-9430-511432724101}</Project>
+      <Name>NotWikiHow™.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotWikiHow™.Models\NotWikiHow™.Models.csproj">
+      <Project>{16fce15e-585d-4074-a7aa-4d5e03652ccf}</Project>
+      <Name>NotWikiHow™.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotWikiHow™.Services\NotWikiHow™.Services.csproj">
+      <Project>{baa48a79-4182-4e0c-8a4e-88ee4a754063}</Project>
+      <Name>NotWikiHow™.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
