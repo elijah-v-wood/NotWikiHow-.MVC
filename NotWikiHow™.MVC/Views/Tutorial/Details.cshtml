@@ -1,0 +1,84 @@
+﻿@model NotWikiHow_.Models.TutorialDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TutorialDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instructions)
+        </dt>
+
+        <dd>
+            @try
+            {
+                if (Model.Instructions.Count() > 0)
+                {
+                    foreach (NotWikiHow_.Data.Instruction instruction in Model.Instructions)
+                    {
+                        <h4>@instruction.Step"."@instruction.Title</h4>
+                        <p>@instruction.Description</p>
+                    }
+
+                }
+            }
+            catch
+            { <p>Couldn't find any instructions</p>}
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Published)
+        </dt>
+
+        <dd>
+            @if (Model.Published)
+            {<p>Published</p>}
+            else
+            {<p>Unpublished</p>}
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUTC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUTC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUTC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUTC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TutorId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

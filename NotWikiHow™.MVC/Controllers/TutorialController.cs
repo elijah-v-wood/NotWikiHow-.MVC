@@ -12,11 +12,16 @@ namespace NotWikiHow_.MVC.Controllers
     [Authorize]
     public class TutorialController : Controller
     {
-        // GET: Tutorial
-        public ActionResult Index()
+        private TutorialService ServiceCreate()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var serv = new TutorialService(userId);
+            return serv;
+        }
+        // GET: Tutorial
+        public ActionResult Index()
+        {
+            var serv = ServiceCreate();
             var model = serv.GetMyTutorials();
 
             return View(model);
@@ -25,6 +30,15 @@ namespace NotWikiHow_.MVC.Controllers
         {
             return View();
         }
+
+        public ActionResult Details(int id)
+        {
+            var serv = ServiceCreate();
+            var model = serv.GetById(id);
+
+            return View(model);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(TutorialCreateModel model)
@@ -34,8 +48,7 @@ namespace NotWikiHow_.MVC.Controllers
                 return View(model);
             }
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var serv = new TutorialService(userId);
+            var serv = ServiceCreate();
 
             if (serv.CreateTutorial(model))
             {

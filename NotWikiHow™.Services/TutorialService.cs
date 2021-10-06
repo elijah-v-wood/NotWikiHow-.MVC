@@ -49,5 +49,24 @@ namespace NotWikiHow_.Services
                 return query.ToArray();
             }
         }
+        public TutorialDetail GetById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Tutorials
+                    .Single(e => (e.TutorId == id && e.UserId == _userId) || (e.TutorId==id && e.Published==true));
+                return
+                    new TutorialDetail
+                    {
+                        TutorId = entity.TutorId,
+                        Title = entity.Title,
+                        Description = entity.Description,
+                        Instructions = entity.Instructions,
+                        Published = entity.Published,
+                        CreatedUTC = entity.CreatedUTC,
+                        ModifiedUTC = entity.ModifiedUTC,
+                    };
+            }
+        }
     }
 }
