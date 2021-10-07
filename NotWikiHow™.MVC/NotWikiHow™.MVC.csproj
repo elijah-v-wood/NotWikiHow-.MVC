@@ -238,6 +238,7 @@
     <Content Include="Views\Tutorial\Index.cshtml" />
     <Content Include="Views\Tutorial\Create.cshtml" />
     <Content Include="Views\Tutorial\Details.cshtml" />
+    <Content Include="Views\Tutorial\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

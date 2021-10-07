@@ -30,15 +30,6 @@ namespace NotWikiHow_.MVC.Controllers
         {
             return View();
         }
-
-        public ActionResult Details(int id)
-        {
-            var serv = ServiceCreate();
-            var model = serv.GetById(id);
-
-            return View(model);
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(TutorialCreateModel model)
@@ -58,6 +49,50 @@ namespace NotWikiHow_.MVC.Controllers
 
             ModelState.AddModelError("", "Tutorial could not be created.");
 
+            return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var serv = ServiceCreate();
+            var model = serv.GetById(id);
+
+            return View(model);
+        }
+        public ActionResult Edit(int id)
+        {
+            var svc = ServiceCreate();
+            var dtl = svc.GetById(id);
+            var mdl = new TutorialEdit
+            {
+                TutorId = dtl.TutorId,
+                Title = dtl.Title,
+                Description = dtl.Description,
+                Instructions = dtl.Instructions,
+                Published = dtl.Published
+            };
+            return View(mdl);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, TutorialEdit model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            if (model.TutorId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatach");
+                return View(model);
+            }
+            var svc = ServiceCreate();
+
+            if (svc.UpdateTutorial(model))
+            {
+                TempData["Save Result"] = "Your Tutorial was Updated.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Your tutorial could not be updated.");
             return View(model);
         }
     }
