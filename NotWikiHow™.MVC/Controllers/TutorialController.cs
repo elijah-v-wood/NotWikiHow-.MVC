@@ -96,6 +96,21 @@ namespace NotWikiHow_.MVC.Controllers
             ModelState.AddModelError("", "Your tutorial could not be updated.");
             return View(model);
         }
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var serv = ServiceCreate();
+            var model = serv.GetById(id);
+
+            return View(model);
+        }
+        [ActionName("Delete")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteTutorial(int id)
+        {
+            return RedirectToAction("Index");
+        }
         public ActionResult AddInstruction()
         {
             return PartialView();

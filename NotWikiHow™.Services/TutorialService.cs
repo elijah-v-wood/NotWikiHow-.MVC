@@ -84,6 +84,18 @@ namespace NotWikiHow_.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public bool DeleteTutorial(int id)
+        {
+            using(var ctx= new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.Tutorials.Single
+                    (e => e.TutorId == id && e.UserId == _userId);
+                ctx.Tutorials.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
         public bool AddInstruction(Instruction model, int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -98,5 +110,6 @@ namespace NotWikiHow_.Services
                 return wasAdded;
             }
         }
+
     }
 }

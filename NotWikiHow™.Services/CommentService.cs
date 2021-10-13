@@ -79,5 +79,17 @@ namespace NotWikiHow_.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public bool DeleteComment(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.Comments.Single
+                    (e => e.CommentId == id && e.UserId == _userId);
+                ctx.Comments.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
