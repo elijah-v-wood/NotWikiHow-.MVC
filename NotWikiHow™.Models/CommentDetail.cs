@@ -17,3 +17,4 @@ namespace NotWikiHow_.Models
         [Display(Name = "Last Modified On")]
         public DateTimeOffset ModifiedUTC { get; set; }
     }
+}
