@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using NotWikiHow_.Data;
 using NotWikiHow_.Models;
 using NotWikiHow_.Services;
 using System;
@@ -75,14 +76,14 @@ namespace NotWikiHow_.MVC.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, TutorialEdit model)
+        public ActionResult Edit(int id,TutorialEdit model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
             if (model.TutorId != id)
             {
-                ModelState.AddModelError("", "Id Mismatach");
+                ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
             var svc = ServiceCreate();
@@ -93,6 +94,26 @@ namespace NotWikiHow_.MVC.Controllers
                 return RedirectToAction("Index");
             }
             ModelState.AddModelError("", "Your tutorial could not be updated.");
+            return View(model);
+        }
+        public ActionResult AddInstruction()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddInstruction(int id, Instruction model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            var svc = ServiceCreate();
+
+            if (svc.AddInstruction(model, id))
+            {
+                TempData["SaveResult"] = "Instruction Added.";
+                return RedirectToAction($"Edit/{id}");
+            }
+            ModelState.AddModelError("", "Failed to add instruction");
             return View(model);
         }
     }

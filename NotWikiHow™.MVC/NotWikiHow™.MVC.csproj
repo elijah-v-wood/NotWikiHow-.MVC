@@ -239,6 +239,7 @@
     <Content Include="Views\Tutorial\Create.cshtml" />
     <Content Include="Views\Tutorial\Details.cshtml" />
     <Content Include="Views\Tutorial\Edit.cshtml" />
+    <Content Include="Views\Tutorial\AddInstruction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

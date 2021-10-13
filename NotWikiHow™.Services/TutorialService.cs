@@ -84,5 +84,19 @@ namespace NotWikiHow_.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public bool AddInstruction(Instruction model, int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var ety = ctx.Tutorials.Single
+                    (e => e.TutorId == id && e.UserId == _userId);
+                int startingCount = ety.Instructions.Count();
+
+                ety.Instructions.Add(model);
+
+                bool wasAdded = ety.Instructions.Count() > startingCount;
+                return wasAdded;
+            }
+        }
     }
 }
