@@ -59,6 +59,7 @@
     <Compile Include="Image.cs" />
     <Compile Include="Instruction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reply.cs" />
     <Compile Include="Tutorial.cs" />
   </ItemGroup>
   <ItemGroup>
