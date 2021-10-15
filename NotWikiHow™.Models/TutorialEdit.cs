@@ -14,5 +14,7 @@ namespace NotWikiHow_.Models
         public string Description { get; set; }
         public List<Instruction> Instructions { get; set; }
         public bool Published { get; set; }
+
+        public Instruction instruction { get; set; }
     }
 }
