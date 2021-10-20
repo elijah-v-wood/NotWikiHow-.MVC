@@ -14,7 +14,7 @@ namespace NotWikiHow_.Data
         public Guid UserId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public List<Instruction> Instructions = new List<Instruction>();
+        public List<Instruction> Instructions { get; set; }
         public bool Published { get; set; }
         public DateTimeOffset CreatedUTC { get; set; }
         public DateTimeOffset ModifiedUTC { get; set; }

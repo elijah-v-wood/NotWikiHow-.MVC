@@ -23,7 +23,8 @@ namespace NotWikiHow_.Services
                 UserId = _userId,
                 Title = model.Title,
                 Description = model.Description,
-                CreatedUTC = DateTimeOffset.Now
+                CreatedUTC = DateTimeOffset.Now,
+                Instructions = new List<Instruction>()
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -95,14 +96,9 @@ namespace NotWikiHow_.Services
                     Description = model.instruction.Description,
                     Step = count++,
                 };
+                ety.Instructions = new List<Instruction>();
+                ety.Instructions.Add(instruct);
 
-                model.Instructions = new List<Instruction>();
-
-                model.Instructions = ety.Instructions;
-
-                model.Instructions.Add(instruct);
-
-                ety.Instructions = model.Instructions;
 
                 return ctx.SaveChanges() == 1;
             }

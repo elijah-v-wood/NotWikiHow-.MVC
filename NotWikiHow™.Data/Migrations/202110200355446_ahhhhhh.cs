@@ -3,10 +3,23 @@ namespace NotWikiHow_.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class ahhhhhh : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Comment",
+                c => new
+                    {
+                        CommentId = c.Int(nullable: false, identity: true),
+                        TutorId = c.Int(nullable: false),
+                        UserId = c.Guid(nullable: false),
+                        Question = c.String(),
+                        CreatedUTC = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUTC = c.DateTimeOffset(nullable: false, precision: 7),
+                    })
+                .PrimaryKey(t => t.CommentId);
+            
             CreateTable(
                 "dbo.Image",
                 c => new
@@ -17,6 +30,34 @@ namespace NotWikiHow_.Data.Migrations
                         CreatedUTC = c.DateTimeOffset(nullable: false, precision: 7),
                     })
                 .PrimaryKey(t => t.ImageId);
+            
+            CreateTable(
+                "dbo.Instruction",
+                c => new
+                    {
+                        InstructId = c.Int(nullable: false, identity: true),
+                        Step = c.Int(nullable: false),
+                        Title = c.String(),
+                        Description = c.String(),
+                        Tutorial_TutorId = c.Int(),
+                    })
+                .PrimaryKey(t => t.InstructId)
+                .ForeignKey("dbo.Tutorial", t => t.Tutorial_TutorId)
+                .Index(t => t.Tutorial_TutorId);
+            
+            CreateTable(
+                "dbo.Reply",
+                c => new
+                    {
+                        ReplyId = c.Int(nullable: false, identity: true),
+                        CommentId = c.Int(nullable: false),
+                        UserId = c.Guid(nullable: false),
+                        TutorId = c.Int(nullable: false),
+                        Content = c.String(),
+                        CreatedUTC = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUTC = c.DateTimeOffset(nullable: false, precision: 7),
+                    })
+                .PrimaryKey(t => t.ReplyId);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -55,21 +96,6 @@ namespace NotWikiHow_.Data.Migrations
                         ModifiedUTC = c.DateTimeOffset(nullable: false, precision: 7),
                     })
                 .PrimaryKey(t => t.TutorId);
-            
-            CreateTable(
-                "dbo.Instruction",
-                c => new
-                    {
-                        InstructId = c.Int(nullable: false, identity: true),
-                        TutorId = c.Int(nullable: false),
-                        Step = c.Int(nullable: false),
-                        Title = c.String(),
-                        Description = c.String(),
-                        ImageId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.InstructId)
-                .ForeignKey("dbo.Tutorial", t => t.TutorId, cascadeDelete: true)
-                .Index(t => t.TutorId);
             
             CreateTable(
                 "dbo.ApplicationUser",
@@ -124,21 +150,23 @@ namespace NotWikiHow_.Data.Migrations
             DropForeignKey("dbo.IdentityUserRole", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
-            DropForeignKey("dbo.Instruction", "TutorId", "dbo.Tutorial");
+            DropForeignKey("dbo.Instruction", "Tutorial_TutorId", "dbo.Tutorial");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
-            DropIndex("dbo.Instruction", new[] { "TutorId" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropIndex("dbo.Instruction", new[] { "Tutorial_TutorId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
-            DropTable("dbo.Instruction");
             DropTable("dbo.Tutorial");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
+            DropTable("dbo.Reply");
+            DropTable("dbo.Instruction");
             DropTable("dbo.Image");
+            DropTable("dbo.Comment");
         }
     }
 }

@@ -4,6 +4,9 @@
     ViewBag.Title = "Details";
 }
 
+<h1>@Html.DisplayFor(model => model.Title)</h1>
+<h4>@Html.DisplayFor(model=>model.Description)</h4>
+
 <h2>Details</h2>
 
 <div>
@@ -32,9 +35,8 @@
         </dt>
 
         <dd>
-            @try
+            @*@try
             {
-
                 foreach (var item in Model.Instructions)
                 {
                     <div>
@@ -47,21 +49,7 @@
             catch
             {
                 <p>Instructions not printed or/missing </p>
-            }
-@*@try
-    {
-        if (Model.Instructions.Count() > 0)
-        {
-            foreach (NotWikiHow_.Data.Instruction instruction in Model.Instructions)
-            {
-                <h4>@instruction.Step"."@instruction.Title</h4>
-                <p>@instruction.Description</p>
-            }
-
-        }
-    }
-    catch
-    { <p>Couldn't find any instructions</p>}*@
+            }*@
 
         </dd>
 

@@ -10,7 +10,6 @@ namespace NotWikiHow_.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "NotWikiHow_.Data.ApplicationDbContext";
         }
 
         protected override void Seed(NotWikiHow_.Data.ApplicationDbContext context)

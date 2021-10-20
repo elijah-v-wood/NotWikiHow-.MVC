@@ -58,21 +58,9 @@
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="Instruction.cs" />
-    <Compile Include="Migrations\202110051757564_InitialCreate.cs" />
-    <Compile Include="Migrations\202110051757564_InitialCreate.Designer.cs">
-      <DependentUpon>202110051757564_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110151432185_initial.cs" />
-    <Compile Include="Migrations\202110151432185_initial.Designer.cs">
-      <DependentUpon>202110151432185_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110200141315_I hate instruction.cs" />
-    <Compile Include="Migrations\202110200141315_I hate instruction.Designer.cs">
-      <DependentUpon>202110200141315_I hate instruction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110200145336_upated instrution lit.cs" />
-    <Compile Include="Migrations\202110200145336_upated instrution lit.Designer.cs">
-      <DependentUpon>202110200145336_upated instrution lit.cs</DependentUpon>
+    <Compile Include="Migrations\202110200355446_ahhhhhh.cs" />
+    <Compile Include="Migrations\202110200355446_ahhhhhh.Designer.cs">
+      <DependentUpon>202110200355446_ahhhhhh.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,17 +72,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202110051757564_InitialCreate.resx">
-      <DependentUpon>202110051757564_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110151432185_initial.resx">
-      <DependentUpon>202110151432185_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110200141315_I hate instruction.resx">
-      <DependentUpon>202110200141315_I hate instruction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110200145336_upated instrution lit.resx">
-      <DependentUpon>202110200145336_upated instrution lit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110200355446_ahhhhhh.resx">
+      <DependentUpon>202110200355446_ahhhhhh.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

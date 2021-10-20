@@ -7,13 +7,13 @@ namespace NotWikiHow_.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class ahhhhhh : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ahhhhhh));
         
         string IMigrationMetadata.Id
         {
-            get { return "202110051757564_InitialCreate"; }
+            get { return "202110200355446_ahhhhhh"; }
         }
         
         string IMigrationMetadata.Source
