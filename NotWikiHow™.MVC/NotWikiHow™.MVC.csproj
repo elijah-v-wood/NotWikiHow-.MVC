@@ -239,13 +239,13 @@
     <Content Include="Views\Tutorial\Index.cshtml" />
     <Content Include="Views\Tutorial\Create.cshtml" />
     <Content Include="Views\Tutorial\Details.cshtml" />
-    <Content Include="Views\Tutorial\Edit.cshtml" />
     <Content Include="Views\Tutorial\AddInstruction.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
     <Content Include="Views\Comment\Create.cshtml" />
     <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Comment\Delete.cshtml" />
     <Content Include="Views\Tutorial\Delete.cshtml" />
+    <Content Include="Views\Tutorial\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
