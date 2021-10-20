@@ -14,10 +14,11 @@ namespace NotWikiHow_.Data
     {
         [Key]
         public int InstructId { get; set; }
-        public int TutorId { get; set; }
         public int Step { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public int ImageId { get; set; }
+
+        public Instruction() { }
+        public Instruction(int count) { }
     }
 }

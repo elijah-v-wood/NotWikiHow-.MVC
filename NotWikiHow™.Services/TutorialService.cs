@@ -51,10 +51,10 @@ namespace NotWikiHow_.Services
         }
         public TutorialDetail GetById(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Tutorials
-                    .Single(e => (e.TutorId == id && e.UserId == _userId) || (e.TutorId==id && e.Published==true));
+                    .Single(e => (e.TutorId == id && e.UserId == _userId) || (e.TutorId == id && e.Published == true));
                 return
                     new TutorialDetail
                     {
@@ -77,16 +77,39 @@ namespace NotWikiHow_.Services
 
                 ety.Title = model.Title;
                 ety.Description = model.Description;
-                ety.Instructions = model.Instructions;
                 ety.Published = model.Published;
                 ety.ModifiedUTC = DateTimeOffset.Now;
+
+                int count;
+                if (ety.Instructions == null)
+                    count = 0;
+                else
+                {
+                    int listCount = ety.Instructions.Count();
+                    count = listCount++;
+                };
+
+                var instruct = new Instruction(count)
+                {
+                    Title = model.instruction.Title,
+                    Description = model.instruction.Description,
+                    Step = count++,
+                };
+
+                model.Instructions = new List<Instruction>();
+
+                model.Instructions = ety.Instructions;
+
+                model.Instructions.Add(instruct);
+
+                ety.Instructions = model.Instructions;
 
                 return ctx.SaveChanges() == 1;
             }
         }
         public bool DeleteTutorial(int id)
         {
-            using(var ctx= new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx.Tutorials.Single
