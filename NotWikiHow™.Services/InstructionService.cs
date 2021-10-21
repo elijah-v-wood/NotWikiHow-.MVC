@@ -83,5 +83,17 @@ namespace NotWikiHow_.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public bool DeleteInstruction(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.Instructions.Single
+                    (e => e.InstructId == id);
+                ctx.Instructions.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

@@ -81,25 +81,6 @@ namespace NotWikiHow_.Services
                 ety.Published = model.Published;
                 ety.ModifiedUTC = DateTimeOffset.Now;
 
-                int count;
-                if (ety.Instructions == null)
-                    count = 0;
-                else
-                {
-                    int listCount = ety.Instructions.Count();
-                    count = listCount++;
-                };
-
-                var instruct = new Instruction(count)
-                {
-                    Title = model.instruction.Title,
-                    Description = model.instruction.Description,
-                    Step = count++,
-                };
-                ety.Instructions = new List<Instruction>();
-                ety.Instructions.Add(instruct);
-
-
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -113,20 +94,6 @@ namespace NotWikiHow_.Services
                 ctx.Tutorials.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
-            }
-        }
-        public bool AddInstruction(Instruction model, int id)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var ety = ctx.Tutorials.Single
-                    (e => e.TutorId == id && e.UserId == _userId);
-                int startingCount = ety.Instructions.Count();
-
-                ety.Instructions.Add(model);
-
-                bool wasAdded = ety.Instructions.Count() > startingCount;
-                return wasAdded;
             }
         }
 
