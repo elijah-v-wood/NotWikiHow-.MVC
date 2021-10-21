@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NotWikiHow_.Models
 {
-    public class InstructionList
+    public class StepList
     {
         public int InstructId { get; set; }
         public int Step { get; set; }

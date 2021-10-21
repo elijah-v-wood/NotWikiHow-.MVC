@@ -36,7 +36,7 @@ namespace NotWikiHow_.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Reply> Replies { get; set; }
         public DbSet<Image> Images { get; set; }
-        public DbSet<Instruction> Instructions { get; set; }
+        public DbSet<Step> Steps { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

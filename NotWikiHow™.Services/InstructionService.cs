@@ -28,10 +28,10 @@ namespace NotWikiHow_.Services
             };
             using (var ctx = new ApplicationDbContext())
             {
-               var count = ctx.Instructions.Where(e => e.TutorId == ety.TutorId).Count();
+               var count = ctx.Steps.Where(e => e.TutorId == ety.TutorId).Count();
                 ety.Step = count++;
 
-                ctx.Instructions.Add(ety);
+                ctx.Steps.Add(ety);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -40,7 +40,7 @@ namespace NotWikiHow_.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
-                    ctx.Instructions
+                    ctx.Steps
                     .Where(e => e.TutorId == id)
                     .Select(e =>
                     new InstructionList
@@ -59,7 +59,7 @@ namespace NotWikiHow_.Services
             using(var ctx = new ApplicationDbContext())
             {
                 var ety =
-                    ctx.Instructions.Single(e => e.InstructId == id);
+                    ctx.Steps.Single(e => e.InstructId == id);
                 return new InstructionDetail()
                 {
                     InstructId = ety.InstructId,
@@ -74,7 +74,7 @@ namespace NotWikiHow_.Services
         {
             using (var ctx= new ApplicationDbContext())
             {
-                var ety = ctx.Instructions.Single(e => e.InstructId == model.InstructId);
+                var ety = ctx.Steps.Single(e => e.InstructId == model.InstructId);
 
                 ety.Title = model.Title;
                 ety.Description = model.Description;
@@ -88,9 +88,9 @@ namespace NotWikiHow_.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
-                    ctx.Instructions.Single
+                    ctx.Steps.Single
                     (e => e.InstructId == id);
-                ctx.Instructions.Remove(entity);
+                ctx.Steps.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
