@@ -1,0 +1,61 @@
+﻿@model NotWikiHow_.Models.CommentDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+<h1>@Html.DisplayFor(mdl=>mdl.Tutorial.Title)</h1>
+<h5>@Html.DisplayFor(mdl=>mdl.Tutorial.Description)</h5>
+
+<h2>@Html.DisplayNameFor(mdl=>mdl.Question)</h2>
+<p>@Html.DisplayFor(mdl=>mdl.Question) | Posted On: @Html.DisplayFor(mdl=>mdl.CreatedUTC)</p>
+
+<div>
+    <h4>CommentDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Question)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Question)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUTC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUTC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUTC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUTC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
