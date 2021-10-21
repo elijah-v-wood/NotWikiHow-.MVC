@@ -57,7 +57,7 @@
     <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Image.cs" />
-    <Compile Include="Instruction.cs" />
+    <Compile Include="Step.cs" />
     <Compile Include="Migrations\202110200355446_ahhhhhh.cs" />
     <Compile Include="Migrations\202110200355446_ahhhhhh.Designer.cs">
       <DependentUpon>202110200355446_ahhhhhh.cs</DependentUpon>

@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace NotWikiHow_.MVC.Controllers
 {
     [Authorize]
-    public class InstructionController : Controller
+    public class StepController : Controller
     {
         private InstructionService ServiceCreate()
         {
@@ -63,7 +63,7 @@ namespace NotWikiHow_.MVC.Controllers
         {
             var svc = ServiceCreate();
             var dtl = svc.GetById(id);
-            var mdl = new InstructionEdit
+            var mdl = new StepEdit
             {
                 InstructId = dtl.InstructId,
                 Title = dtl.Title,
@@ -73,7 +73,7 @@ namespace NotWikiHow_.MVC.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, InstructionEdit model)
+        public ActionResult Edit(int id, StepEdit model)
         {
 
             if (!ModelState.IsValid)
