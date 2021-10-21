@@ -73,6 +73,10 @@
     <Compile Include="Migrations\202110211350379_added virtul property to step.Designer.cs">
       <DependentUpon>202110211350379_added virtul property to step.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110211546386_fixed comment issue.cs" />
+    <Compile Include="Migrations\202110211546386_fixed comment issue.Designer.cs">
+      <DependentUpon>202110211546386_fixed comment issue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Step.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110211350379_added virtul property to step.resx">
       <DependentUpon>202110211350379_added virtul property to step.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110211546386_fixed comment issue.resx">
+      <DependentUpon>202110211546386_fixed comment issue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

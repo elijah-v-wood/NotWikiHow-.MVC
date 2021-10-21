@@ -17,5 +17,7 @@ namespace NotWikiHow_.Data
         public string Question { get; set; }
         public DateTimeOffset CreatedUTC { get; set; }
         public DateTimeOffset ModifiedUTC { get; set; }
+        [ForeignKey("TutorId")]
+        public virtual Tutorial Tutorial { get; set; }
     }
 }

@@ -43,6 +43,7 @@ namespace NotWikiHow_.Services
                         Question=e.Question,
                         CreatedUTC=e.CreatedUTC,
                         TutorId=e.TutorId,
+                        Tutorial=e.Tutorial
                     });
                 return query.ToArray();
             }
@@ -59,9 +60,37 @@ namespace NotWikiHow_.Services
                     TutorId = ety.TutorId,
                     Question = ety.Question,
                     CreatedUTC = ety.CreatedUTC,
-                    ModifiedUTC = ety.ModifiedUTC
+                    ModifiedUTC = ety.ModifiedUTC,
+                    Tutorial=ety.Tutorial
                 };
             }
+        }
+        public bool UpdateComment(CommentEdit model)
+        {
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                var ety = ctx.Comments.Single
+                    (e => e.CommentId == model.CommentId && e.UserId == _userId);
+
+                ety.Question = model.Question;
+                ety.ModifiedUTC = DateTimeOffset.Now;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteComment(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.Comments.Single
+                    (e => e.CommentId == id && e.UserId == _userId);
+                ctx.Comments.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+
         }
     }
 }
