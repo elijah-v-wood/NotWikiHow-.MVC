@@ -21,18 +21,34 @@ namespace NotWikiHow_.Services
         {
             var ety = new Step()
             {
-                TutorId=model.TutorId,
+                TutorId = model.TutorId,
                 Title = model.Title,
                 Description = model.Description,
                 CreatedUTC = DateTimeOffset.Now
             };
             using (var ctx = new ApplicationDbContext())
             {
-               var count = ctx.Steps.Where(e => e.TutorId == ety.TutorId).Count();
-                ety.Order = count++;
-
                 ctx.Steps.Add(ety);
                 return ctx.SaveChanges() == 1;
+            }
+        }
+        public IEnumerable<StepList> GetInstructions()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx.Steps
+                    .Where(e => e.UserId == _userId)
+                    .Select(e =>
+                    new StepList
+                    {
+                        InstructId = e.InstructId,
+                        Order = e.Order,
+                        Title = e.Title,
+                        Description = e.Description
+                    }
+                    );
+                return query.ToArray();
             }
         }
         public IEnumerable<StepList> GetInstructionsByTutorial(int id)
@@ -45,10 +61,10 @@ namespace NotWikiHow_.Services
                     .Select(e =>
                     new StepList
                     {
-                        InstructId=e.InstructId,
-                        Order=e.Order,
-                        Title=e.Title,
-                        Description=e.Description
+                        InstructId = e.InstructId,
+                        Order = e.Order,
+                        Title = e.Title,
+                        Description = e.Description
                     }
                     );
                 return query.ToArray();
@@ -56,7 +72,7 @@ namespace NotWikiHow_.Services
         }
         public StepDetail GetById(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var ety =
                     ctx.Steps.Single(e => e.InstructId == id);
@@ -72,7 +88,7 @@ namespace NotWikiHow_.Services
         }
         public bool UpdateInstruction(StepEdit model)
         {
-            using (var ctx= new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var ety = ctx.Steps.Single(e => e.InstructId == model.InstructId);
 

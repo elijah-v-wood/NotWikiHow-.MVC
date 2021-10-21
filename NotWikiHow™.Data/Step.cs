@@ -14,6 +14,7 @@ namespace NotWikiHow_.Data
     {
         [Key]
         public int InstructId { get; set; }
+        public Guid UserId { get; set; }
         public int TutorId { get; set; }
         public int Order { get; set; }
         public string Title { get; set; }
