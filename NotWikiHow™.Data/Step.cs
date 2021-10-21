@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace NotWikiHow_.Data
         public string Description { get; set; }
         public DateTimeOffset CreatedUTC { get; set; }
         public DateTimeOffset ModifiedUTC { get; set; }
+        [ForeignKey("TutorId")]
+        public virtual Tutorial Tutorial { get; set; }
 
     }
 }

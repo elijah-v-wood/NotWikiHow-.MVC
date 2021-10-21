@@ -17,7 +17,7 @@
             <span>&times;</span>
         </button>
         @TempData["SaveResult"]
-    </div> 
+    </div>
 }
 
 <table class="table">
@@ -41,6 +41,9 @@
     {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.TutorId)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
@@ -50,9 +53,9 @@
                 @Html.DisplayFor(modelItem => item.CreatedUTC)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.TutorId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.TutorId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.TutorId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.TutorId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TutorId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TutorId })
             </td>
         </tr>
     }

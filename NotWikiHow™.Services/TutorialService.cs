@@ -44,7 +44,7 @@ namespace NotWikiHow_.Services
                         TutorId = e.TutorId,
                         Title = e.Title,
                         Description = e.Description,
-                        CreatedUTC = e.CreatedUTC,
+                        CreatedUTC = e.CreatedUTC
                     }
                 );
                 return query.ToArray();

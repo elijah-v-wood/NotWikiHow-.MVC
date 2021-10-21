@@ -45,7 +45,9 @@ namespace NotWikiHow_.Services
                     {
                         InstructId = e.InstructId,
                         Title = e.Title,
-                        Description = e.Description
+                        Description = e.Description,
+                        TutorId=e.TutorId,
+                        Tutorial=e.Tutorial
                     }
                     );
                 return query.ToArray();

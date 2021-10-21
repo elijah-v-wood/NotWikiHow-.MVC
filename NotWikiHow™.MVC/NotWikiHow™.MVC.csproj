@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReplyController.cs" />
     <Compile Include="Controllers\StepController.cs" />
@@ -243,10 +244,13 @@
     <Content Include="Views\Tutorial\Delete.cshtml" />
     <Content Include="Views\Tutorial\Edit.cshtml" />
     <Content Include="Views\Tutorial\Details.cshtml" />
+    <Content Include="Views\Step\Index.cshtml" />
+    <Content Include="Views\Comment\Index.cshtml" />
+    <Content Include="Views\Comment\Create.cshtml" />
+    <Content Include="Views\Comment\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Comment\" />
     <Folder Include="Views\Reply\" />
   </ItemGroup>
   <ItemGroup>

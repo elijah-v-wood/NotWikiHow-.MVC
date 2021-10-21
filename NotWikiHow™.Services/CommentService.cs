@@ -31,5 +31,37 @@ namespace NotWikiHow_.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public IEnumerable<CommentListItem> GetMyComments()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.Comments.Where(e => e.UserId == _userId)
+                    .Select(e =>
+                    new CommentListItem
+                    {
+                        CommentId=e.CommentId,
+                        Question=e.Question,
+                        CreatedUTC=e.CreatedUTC,
+                        TutorId=e.TutorId,
+                    });
+                return query.ToArray();
+            }
+        }
+        public CommentDetail GetById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var ety =
+                    ctx.Comments.Single(e => e.CommentId == id && _userId == e.UserId);
+                return new CommentDetail
+                {
+                    CommentId = ety.CommentId,
+                    TutorId = ety.TutorId,
+                    Question = ety.Question,
+                    CreatedUTC = ety.CreatedUTC,
+                    ModifiedUTC = ety.ModifiedUTC
+                };
+            }
+        }
     }
 }
