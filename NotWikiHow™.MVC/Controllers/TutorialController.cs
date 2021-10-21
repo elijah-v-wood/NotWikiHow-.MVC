@@ -69,7 +69,7 @@ namespace NotWikiHow_.MVC.Controllers
                 TutorId = dtl.TutorId,
                 Title = dtl.Title,
                 Description = dtl.Description,
-                Instructions = dtl.Instructions,
+                Steps = dtl.Steps,
                 Published = dtl.Published
             };
             return View(mdl);

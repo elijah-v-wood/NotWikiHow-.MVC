@@ -24,7 +24,7 @@ namespace NotWikiHow_.Services
                 Title = model.Title,
                 Description = model.Description,
                 CreatedUTC = DateTimeOffset.Now,
-                Instructions = new List<Instruction>()
+                Steps = new List<Step>()
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -62,7 +62,7 @@ namespace NotWikiHow_.Services
                         TutorId = entity.TutorId,
                         Title = entity.Title,
                         Description = entity.Description,
-                        Instructions = entity.Instructions,
+                        Steps = entity.Steps,
                         Published = entity.Published,
                         CreatedUTC = entity.CreatedUTC,
                         ModifiedUTC = entity.ModifiedUTC,

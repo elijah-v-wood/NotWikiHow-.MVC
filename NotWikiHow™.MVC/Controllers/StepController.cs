@@ -32,7 +32,7 @@ namespace NotWikiHow_.MVC.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(InstructionCreate model)
+        public ActionResult Create(StepCreate model)
         {
             if (!ModelState.IsValid)
                 return View(model);

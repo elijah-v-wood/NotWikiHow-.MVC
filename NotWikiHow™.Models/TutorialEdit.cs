@@ -12,9 +12,9 @@ namespace NotWikiHow_.Models
         public int TutorId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public List<Instruction> Instructions { get; set; }
+        public List<Step> Steps { get; set; }
         public bool Published { get; set; }
 
-        public Instruction instruction { get; set; }
+        public Step step { get; set; }
     }
 }
