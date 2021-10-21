@@ -35,5 +35,40 @@ namespace NotWikiHow_.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public IEnumerable<InstructionList> GetInstructionsByTutorial(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx.Instructions
+                    .Where(e => e.TutorId == id)
+                    .Select(e =>
+                    new InstructionList
+                    {
+                        InstructId=e.InstructId,
+                        Step=e.Step,
+                        Title=e.Title,
+                        Description=e.Description
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
+        public InstructionDetail GetById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var ety =
+                    ctx.Instructions.Single(e => e.InstructId == id);
+                return new InstructionDetail()
+                {
+                    InstructId = ety.InstructId,
+                    TutorId = ety.TutorId,
+                    Step = ety.Step,
+                    Title = ety.Title,
+                    Description = ety.Description
+                };
+            }
+        }
     }
 }
