@@ -168,7 +168,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReplyController.cs" />
     <Compile Include="Controllers\StepController.cs" />
@@ -187,6 +186,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fullview.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -240,14 +240,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Tutorial\Index.cshtml" />
     <Content Include="Views\Tutorial\Create.cshtml" />
-    <Content Include="Views\Tutorial\Details.cshtml" />
     <Content Include="Views\Tutorial\Delete.cshtml" />
     <Content Include="Views\Tutorial\Edit.cshtml" />
-    <Content Include="Views\Step\Create.cshtml" />
-    <Content Include="Views\Step\Index.cshtml" />
-    <Content Include="Views\Step\Details.cshtml" />
-    <Content Include="Views\Step\Edit.cshtml" />
-    <Content Include="Views\Step\Delete.cshtml" />
+    <Content Include="Views\Tutorial\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

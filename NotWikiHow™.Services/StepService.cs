@@ -44,7 +44,6 @@ namespace NotWikiHow_.Services
                     new StepList
                     {
                         InstructId = e.InstructId,
-                        Order = e.Order,
                         Title = e.Title,
                         Description = e.Description
                     }
@@ -63,7 +62,6 @@ namespace NotWikiHow_.Services
                     new StepList
                     {
                         InstructId = e.InstructId,
-                        Order = e.Order,
                         Title = e.Title,
                         Description = e.Description
                     }

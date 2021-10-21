@@ -70,6 +70,7 @@
     <Compile Include="TutorialCreateModel.cs" />
     <Compile Include="TutorialDetail.cs" />
     <Compile Include="TutorialEdit.cs" />
+    <Compile Include="FullView.cs" />
     <Compile Include="TutorialListItem.cs" />
   </ItemGroup>
   <ItemGroup>

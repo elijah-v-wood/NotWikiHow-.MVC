@@ -56,6 +56,13 @@ namespace NotWikiHow_.Services
             {
                 var entity = ctx.Tutorials
                     .Single(e => (e.TutorId == id && e.UserId == _userId) || (e.TutorId == id && e.Published == true));
+                foreach (Step step in ctx.Steps)
+                {
+                    if (step.TutorId == entity.TutorId)
+                    {
+                        entity.Steps.Add(step);
+                    }
+                }
                 return
                     new TutorialDetail
                     {
@@ -96,6 +103,29 @@ namespace NotWikiHow_.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        /*public FullView GetFullView(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var ety =
+                    ctx.Tutorials.Single(e => e.TutorId == id);
+                foreach(Step step in ctx.Steps)
+                {
+                    if (step.TutorId == ety.TutorId)
+                    {
+                        ety.Steps.Add(step);
+                    }
+                }
+                return new FullView
+                {
+                    TutorId=ety.TutorId,
+                    Steps=ety.Steps,
+                    Description=ety.Description,
+                    CreatedUTC=ety.CreatedUTC
+                };
+            }
+        }*/
 
     }
 }
