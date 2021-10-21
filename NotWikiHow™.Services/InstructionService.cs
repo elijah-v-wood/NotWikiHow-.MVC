@@ -70,5 +70,18 @@ namespace NotWikiHow_.Services
                 };
             }
         }
+        public bool UpdateInstruction(InstructionEdit model)
+        {
+            using (var ctx= new ApplicationDbContext())
+            {
+                var ety = ctx.Instructions.Single(e => e.InstructId == model.InstructId);
+
+                ety.Title = model.Title;
+                ety.Description = model.Description;
+                ety.ModifiedUTC = DateTimeOffset.Now;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

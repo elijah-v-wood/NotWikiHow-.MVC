@@ -9,7 +9,6 @@ namespace NotWikiHow_.Models
     public class InstructionEdit
     {
         public int InstructId { get; set; }
-        public int Step { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
     }
