@@ -247,10 +247,10 @@
     <Content Include="Views\Comment\Delete.cshtml" />
     <Content Include="Views\Tutorial\Delete.cshtml" />
     <Content Include="Views\Tutorial\Edit.cshtml" />
-    <Content Include="Views\Instruction\Index.cshtml" />
-    <Content Include="Views\Instruction\Create.cshtml" />
-    <Content Include="Views\Instruction\Details.cshtml" />
-    <Content Include="Views\Instruction\Edit.cshtml" />
+    <Content Include="Views\Step\Index.cshtml" />
+    <Content Include="Views\Step\Create.cshtml" />
+    <Content Include="Views\Step\Details.cshtml" />
+    <Content Include="Views\Step\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

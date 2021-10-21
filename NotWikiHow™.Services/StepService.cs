@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace NotWikiHow_.Services
 {
-    public class InstructionService
+    public class StepService
     {
         private readonly Guid _userId;
 
-        public InstructionService(Guid userId)
+        public StepService(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreateInstruction(InstructionCreate model)
+        public bool CreateInstruction(StepCreate model)
         {
-            var ety = new Instruction()
+            var ety = new Step()
             {
                 TutorId=model.TutorId,
                 Title = model.Title,
@@ -29,13 +29,13 @@ namespace NotWikiHow_.Services
             using (var ctx = new ApplicationDbContext())
             {
                var count = ctx.Steps.Where(e => e.TutorId == ety.TutorId).Count();
-                ety.Step = count++;
+                ety.Order = count++;
 
                 ctx.Steps.Add(ety);
                 return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<InstructionList> GetInstructionsByTutorial(int id)
+        public IEnumerable<StepList> GetInstructionsByTutorial(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -43,10 +43,10 @@ namespace NotWikiHow_.Services
                     ctx.Steps
                     .Where(e => e.TutorId == id)
                     .Select(e =>
-                    new InstructionList
+                    new StepList
                     {
                         InstructId=e.InstructId,
-                        Step=e.Step,
+                        Order=e.Order,
                         Title=e.Title,
                         Description=e.Description
                     }
@@ -54,23 +54,23 @@ namespace NotWikiHow_.Services
                 return query.ToArray();
             }
         }
-        public InstructionDetail GetById(int id)
+        public StepDetail GetById(int id)
         {
             using(var ctx = new ApplicationDbContext())
             {
                 var ety =
                     ctx.Steps.Single(e => e.InstructId == id);
-                return new InstructionDetail()
+                return new StepDetail()
                 {
                     InstructId = ety.InstructId,
                     TutorId = ety.TutorId,
-                    Step = ety.Step,
+                    Order = ety.Order,
                     Title = ety.Title,
                     Description = ety.Description
                 };
             }
         }
-        public bool UpdateInstruction(InstructionEdit model)
+        public bool UpdateInstruction(StepEdit model)
         {
             using (var ctx= new ApplicationDbContext())
             {

@@ -12,10 +12,10 @@ namespace NotWikiHow_.MVC.Controllers
     [Authorize]
     public class StepController : Controller
     {
-        private InstructionService ServiceCreate()
+        private StepService ServiceCreate()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var serv = new InstructionService(userId);
+            var serv = new StepService(userId);
             return serv;
         }
         // GET: Instruction
