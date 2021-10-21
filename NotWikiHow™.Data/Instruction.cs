@@ -18,6 +18,8 @@ namespace NotWikiHow_.Data
         public int Step { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public DateTimeOffset CreatedUTC { get; set; }
+        public DateTimeOffset ModifiedUTC { get; set; }
 
     }
 }
