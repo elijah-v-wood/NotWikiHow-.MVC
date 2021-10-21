@@ -44,7 +44,7 @@ namespace NotWikiHow_.MVC.Controllers
 
             if (serv.CreateTutorial(model))
             {
-                TempData["SaveResult"] = "Tutorial Created Successfully.";
+                TempData["SaveResult"] = "Tutorial created successfully.";
                 return RedirectToAction("Index");
             }
 
@@ -110,26 +110,6 @@ namespace NotWikiHow_.MVC.Controllers
         public ActionResult DeleteTutorial(int id)
         {
             return RedirectToAction("Index");
-        }
-        public ActionResult AddInstruction()
-        {
-            return PartialView();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddInstruction(int id, Instruction model)
-        {
-            if (!ModelState.IsValid)
-                return View(model);
-            var svc = ServiceCreate();
-
-            if (svc.AddInstruction(model, id))
-            {
-                TempData["SaveResult"] = "Instruction Added.";
-                return RedirectToAction($"Edit/{id}");
-            }
-            ModelState.AddModelError("", "Failed to add instruction");
-            return View(model);
         }
     }
 }
