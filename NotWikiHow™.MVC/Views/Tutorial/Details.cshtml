@@ -1,0 +1,24 @@
+﻿@model NotWikiHow_.Models.TutorialDetail
+<head>
+<link rel="stylesheet" href="fullview.css" type="text/css"/>
+</head>
+@{
+    ViewBag.Title = "Details";
+}
+<div class="title">
+    <h1>@Html.DisplayFor(model=>model.Title)</h1>
+</div>
+<div>
+    <h5>@Html.DisplayFor(model=>model.Description)</h5>
+</div>
+<div>
+    @foreach(NotWikiHow_.Data.Step step in Model.Steps)
+            {
+        <h4>@step.Title</h4>
+        <p>@step.Description</p>
+            }
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TutorId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

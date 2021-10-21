@@ -169,7 +169,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReplyController.cs" />
+    <Compile Include="Controllers\StepController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TutorialController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -183,6 +186,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fullview.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -234,9 +238,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Tutorial\Index.cshtml" />
+    <Content Include="Views\Tutorial\Create.cshtml" />
+    <Content Include="Views\Tutorial\Delete.cshtml" />
+    <Content Include="Views\Tutorial\Edit.cshtml" />
+    <Content Include="Views\Tutorial\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Comment\" />
+    <Folder Include="Views\Reply\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -250,6 +261,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NotWikiHow™.Data\NotWikiHow™.Data.csproj">
+      <Project>{68178F28-FB4B-4ECA-9430-511432724101}</Project>
+      <Name>NotWikiHow™.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotWikiHow™.Models\NotWikiHow™.Models.csproj">
+      <Project>{16fce15e-585d-4074-a7aa-4d5e03652ccf}</Project>
+      <Name>NotWikiHow™.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotWikiHow™.Services\NotWikiHow™.Services.csproj">
+      <Project>{baa48a79-4182-4e0c-8a4e-88ee4a754063}</Project>
+      <Name>NotWikiHow™.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
