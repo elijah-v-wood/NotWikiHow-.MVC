@@ -22,6 +22,7 @@ namespace NotWikiHow_.Services
             var ety = new Step()
             {
                 TutorId = model.TutorId,
+                UserId=_userId,
                 Title = model.Title,
                 Description = model.Description,
                 CreatedUTC = DateTimeOffset.Now
@@ -57,7 +58,7 @@ namespace NotWikiHow_.Services
             {
                 var query =
                     ctx.Steps
-                    .Where(e => e.TutorId == id)
+                    .Where(e => e.TutorId == id && e.UserId==_userId)
                     .Select(e =>
                     new StepList
                     {
@@ -90,7 +91,7 @@ namespace NotWikiHow_.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var ety = ctx.Steps.Single(e => e.InstructId == model.InstructId);
+                var ety = ctx.Steps.Single(e => e.InstructId == model.InstructId && e.UserId == _userId);
 
                 ety.Title = model.Title;
                 ety.Description = model.Description;
@@ -105,7 +106,7 @@ namespace NotWikiHow_.Services
             {
                 var entity =
                     ctx.Steps.Single
-                    (e => e.InstructId == id);
+                    (e => e.InstructId == id && e.UserId==_userId);
                 ctx.Steps.Remove(entity);
 
                 return ctx.SaveChanges() == 1;

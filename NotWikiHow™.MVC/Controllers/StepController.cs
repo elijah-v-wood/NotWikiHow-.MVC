@@ -19,10 +19,10 @@ namespace NotWikiHow_.MVC.Controllers
             return serv;
         }
         // GET: Instruction
-        public ActionResult Index(int id)
+        public ActionResult Index()
         {
             var serv = ServiceCreate();
-            var model = serv.GetInstructionsByTutorial(id);
+            var model = serv.GetInstructions();
 
             return View(model);
         }

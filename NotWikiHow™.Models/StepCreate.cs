@@ -8,7 +8,6 @@ namespace NotWikiHow_.Models
 {
     public class StepCreate
     {
-        public int Order { get; set; }
         public int TutorId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
